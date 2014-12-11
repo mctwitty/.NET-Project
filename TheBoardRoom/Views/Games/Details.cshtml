@@ -1,0 +1,161 @@
+﻿@model TheBoardRoom.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">Shop Name</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Category 1</a>
+                <a href="#" class="list-group-item">Category 2</a>
+                <a href="#" class="list-group-item">Category 3</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="thumbnail">
+                <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">$@Html.DisplayFor(model => model.Price)</h4>
+                    <h4>
+                        <a href="#">@Html.DisplayFor(model => model.Name)</a>
+                    </h4>
+                    <p>@Html.DisplayFor(model => model.Description)</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">3 review(s)</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        4.0 stars
+                    </p>
+                </div>
+            </div>
+
+            <div class="well">
+
+                <div class="text-right">
+                    @*<a class="btn btn-success">Leave a Review</a>*@
+                    @Html.ActionLink("Leave a Review", "Create", "CustomerReviews", new { id = Model.GameID }, new { @class = "btn btn-success"})
+                </div>
+
+                <hr>
+
+                @foreach (TheBoardRoom.Models.CustomerReview review in Model.CustomerReviews)
+                {
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        @Html.DisplayFor(r => review.Author) @review.Author
+                        <span class="pull-right">@Html.DisplayFor(r => review.TimeStamp)</span>
+                        <h4>@Html.DisplayFor(r => review.Title)</h4>
+                        <p>@Html.DisplayFor(r => review.Body)</p>
+                    </div>
+                </div>
+
+                <hr>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@*<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InLibrary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InLibrary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceModifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceModifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinPlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxPlayers)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
