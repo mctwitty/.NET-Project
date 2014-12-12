@@ -186,6 +186,14 @@
     <Compile Include="Migrations\201412110938012_initialization.Designer.cs">
       <DependentUpon>201412110938012_initialization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201412120340523_imagesInModels.cs" />
+    <Compile Include="Migrations\201412120340523_imagesInModels.Designer.cs">
+      <DependentUpon>201412120340523_imagesInModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412120417523_smallImageInGame.cs" />
+    <Compile Include="Migrations\201412120417523_smallImageInGame.Designer.cs">
+      <DependentUpon>201412120417523_smallImageInGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppModel.cs" />
@@ -290,6 +298,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201412110938012_initialization.resx">
       <DependentUpon>201412110938012_initialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412120340523_imagesInModels.resx">
+      <DependentUpon>201412120340523_imagesInModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412120417523_smallImageInGame.resx">
+      <DependentUpon>201412120417523_smallImageInGame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

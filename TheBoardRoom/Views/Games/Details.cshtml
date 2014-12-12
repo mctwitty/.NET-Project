@@ -1,9 +1,9 @@
 ﻿@model TheBoardRoom.Models.Game
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Name + "Details";
 }
-
+@Html.ActionLink("Edit", "Edit", new { id = Model.GameID })
 <h2>Details</h2>
 <div class="container">
 
@@ -21,7 +21,7 @@
         <div class="col-md-9">
 
             <div class="thumbnail">
-                <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                <img class="img-responsive" src="@Html.DisplayFor(model => model.LargeImage)" alt="">
                 <div class="caption-full">
                     <h4 class="pull-right">$@Html.DisplayFor(model => model.Price)</h4>
                     <h4>
@@ -60,7 +60,7 @@
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
-                        @Html.DisplayFor(r => review.Author) @review.Author
+                        @Html.DisplayFor(r => review.Author)
                         <span class="pull-right">@Html.DisplayFor(r => review.TimeStamp)</span>
                         <h4>@Html.DisplayFor(r => review.Title)</h4>
                         <p>@Html.DisplayFor(r => review.Body)</p>

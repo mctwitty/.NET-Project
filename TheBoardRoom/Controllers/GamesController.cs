@@ -17,7 +17,7 @@ namespace TheBoardRoom.Controllers
         // GET: Games
         public ActionResult Index()
         {
-            return View(db.Games.ToList());
+            return View(db.Games.Include("CustomerReviews").ToList());
         }
 
         // GET: Games/Details/5
@@ -46,7 +46,7 @@ namespace TheBoardRoom.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,Name,Description,InLibrary,InStock,Price,PriceModifier,ReleaseYear,MinPlayers,MaxPlayers")] Game game)
+        public ActionResult Create([Bind(Include = "GameID,Name,Description,InLibrary,InStock,Price,PriceModifier,ReleaseYear,MinPlayers,MaxPlayers,LargeImage,SmallImage")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TheBoardRoom.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,Name,Description,InLibrary,InStock,Price,PriceModifier,ReleaseYear,MinPlayers,MaxPlayers")] Game game)
+        public ActionResult Edit([Bind(Include = "GameID,Name,Description,InLibrary,InStock,Price,PriceModifier,ReleaseYear,MinPlayers,MaxPlayers,LargeImage,SmallImage")] Game game)
         {
             if (ModelState.IsValid)
             {

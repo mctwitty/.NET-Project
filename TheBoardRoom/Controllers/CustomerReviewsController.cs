@@ -37,7 +37,7 @@ namespace TheBoardRoom.Controllers
         {
             if(id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            ViewBag.ReviewID = id;
+            ViewBag.GameID = id;
 
             return View(new CustomerReview() { TimeStamp = DateTime.Now });
         }
@@ -47,10 +47,13 @@ namespace TheBoardRoom.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewID,Author,Title,Body,Rating,TimeStamp,isApproved")] CustomerReview customerReview)
+        public ActionResult Create([Bind(Include = "ReviewID,Author,Title,Body,Rating,TimeStamp,isApproved")] CustomerReview customerReview, int GameID)
         {
             if (ModelState.IsValid)
             {
+                var game = db.Games.Find(GameID);
+                game.CustomerReviews.Add(customerReview);
+
                 db.CustomerReviews.Add(customerReview);
                 db.SaveChanges();
                 return RedirectToAction("Index");

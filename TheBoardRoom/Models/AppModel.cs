@@ -34,7 +34,7 @@ using System.Linq;
                     MaxPlayers = 5,
                     InLibrary = 1,
                     InStock = 5,
-                    Price = 35.99m,
+                    Price = 34.99m,
                     PriceModifier = 1
                 }},
                 {new Game()

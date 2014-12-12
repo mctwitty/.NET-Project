@@ -20,5 +20,7 @@ namespace TheBoardRoom.Models
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
         public virtual ICollection<CustomerReview> CustomerReviews { get; set; }
+        public string LargeImage { get; set; }
+        public string SmallImage { get; set; }
     }
 }

@@ -14,5 +14,6 @@ namespace TheBoardRoom.Models
         public string Author { get; set; }
         public string Content { get; set; }
         public DateTime TimeStamp { get; set; }
+        public string Image { get; set; }
     }
 }
